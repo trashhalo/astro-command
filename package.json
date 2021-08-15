@@ -1,0 +1,17 @@
+{
+  "name": "astro-zdog",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "keywords": ["astro-component"],
+  "scripts": {
+    "start": "astro dev"
+  },
+  "dependencies": {
+    "browser-env": "^3.3.0",
+    "zdog": "^1.1.2"
+  },
+  "devDependencies": {
+    "astro": "^0.18.13"
+  }
+}

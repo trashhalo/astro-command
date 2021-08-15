@@ -1,0 +1,1 @@
+export { default as ZdogScene } from './src/components/ZdogScene.astro';

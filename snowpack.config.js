@@ -10,7 +10,7 @@ module.exports = {
     /* ... */
   ],
   packageOptions: {
-    external: ["browser-env"]
+    external: []
   },
   devOptions: {
     /* ... */

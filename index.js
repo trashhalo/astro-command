@@ -1,1 +1,1 @@
-export { default as ZdogScene } from './src/components/ZdogScene.astro';
+export { default as Command } from './src/components/Command.astro';

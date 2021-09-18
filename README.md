@@ -1,18 +1,18 @@
-# Astro Zdog
+# Astro Command
 
-![](./Demo.png)
-
-Astro component for static rendering of [Zdog](https://zzz.dog/) scenes. The 3D scenes are rendered to svg which requires no JS.
+Astro component for static rendering of commands. This allows you build components in any language.
 
 [Demo](./src/components/Demo.astro)
 
-## browser-env
+## Usage
 
-zdog assumes its executing in a browser and calls into document. To make the astro static renderer happy with this you need to add browser-env to your index.astro page.
-
-```typescript
-import browserEnv from "browser-env";
-browserEnv();
+```astro
+---
+import Command from "../components/Command.astro";
+---
+<Command caller={import.meta.url} command="Component.py" message="from python!" />
 ```
-
-And due to issues with snowpack you need to add browser-env to your external module list. See [snowpack.config.js](./snowpack.config.js)
+* caller: url of the caller so we can use it to look up relative paths
+* command: name of the command to execute. relative path from the caller
+* props: all props are passed to command as json via stdin
+* html: generated html sent out via stdout embedded

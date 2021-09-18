@@ -6,7 +6,8 @@
   "keywords": ["astro-component"],
   "repository": "trashhalo/astro-command",
   "scripts": {
-    "start": "astro dev"
+    "start": "astro dev",
+    "test": "astro build"
   },
   "dependencies": {},
   "devDependencies": {

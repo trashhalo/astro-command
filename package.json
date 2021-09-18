@@ -1,5 +1,5 @@
 {
-  "name": "astro-zdog",
+  "name": "astro-command",
   "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
@@ -7,10 +7,7 @@
   "scripts": {
     "start": "astro dev"
   },
-  "dependencies": {
-    "browser-env": "^3.3.0",
-    "zdog": "^1.1.2"
-  },
+  "dependencies": {},
   "devDependencies": {
     "astro": "^0.18.13"
   }

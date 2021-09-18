@@ -1,11 +1,24 @@
 ---
-import { execSync } from 'node:child_process';
+import { exec } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const { caller, command } = Astro.props;
 const input = JSON.stringify(Astro.props);
 const fullCommand = path.join(fileURLToPath(caller), '../', command);
-const html = execSync(fullCommand, { input });
+const html = await new Promise((resolve, reject) => {
+    const sub = exec(fullCommand, (err, stdout, stderr) => {
+        if(err) {
+            return reject({err, stderr});
+        }
+        resolve(stdout);
+    });
+    sub.on('spawn', () => {
+        if(sub.stdin.writable) {
+            sub.stdin.write(input);
+            sub.stdin.end();
+        }
+    });
+});
 ---
 {html}

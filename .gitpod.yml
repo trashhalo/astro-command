@@ -2,7 +2,7 @@ tasks:
   - init: >
       yarn install &&
       yarn test
-    command: yarn dev
+    command: yarn start
 
 ports:
   - port: 3000

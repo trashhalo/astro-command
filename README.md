@@ -2,7 +2,7 @@
 
 Astro component for static rendering of commands. This allows you build components in any language.
 
-[Demo](./src/components/Demo.astro)
+[Demo](https://github.com/trashhalo/astro-command/blob/main/src/components/Demo.astro)
 
 ## Usage
 

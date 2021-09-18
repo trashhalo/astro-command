@@ -1,9 +1,10 @@
 {
   "name": "astro-command",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "index.js",
   "license": "MIT",
   "keywords": ["astro-component"],
+  "repository": "trashhalo/astro-command",
   "scripts": {
     "start": "astro dev"
   },

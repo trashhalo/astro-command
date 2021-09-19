@@ -3,22 +3,37 @@ import { exec } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
-const { caller, command } = Astro.props;
+const {
+    caller,
+    command,
+    sendProps = true,
+    args
+} = Astro.props;
+
 const input = JSON.stringify(Astro.props);
-const fullCommand = path.join(fileURLToPath(caller), '../', command);
+const cwd = path.join(fileURLToPath(caller), '../');
+
+let commandWithArgs = command;
+if(args) {
+    commandWithArgs += ' ' + args.join(' ');
+}
+
+console.log(cwd, commandWithArgs);
 const html = await new Promise((resolve, reject) => {
-    const sub = exec(fullCommand, (err, stdout, stderr) => {
+    const sub = exec(commandWithArgs, { cwd }, (err, stdout, stderr) => {
         if(err) {
             return reject({err, stderr});
         }
         resolve(stdout);
     });
-    sub.on('spawn', () => {
-        if(sub.stdin.writable) {
-            sub.stdin.write(input);
-            sub.stdin.end();
-        }
-    });
+    if(sendProps) {
+        sub.on('spawn', () => {
+            if(sub.stdin.writable) {
+                sub.stdin.write(input);
+                sub.stdin.end();
+            }
+        });
+    }
 });
 ---
 {html}

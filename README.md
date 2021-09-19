@@ -8,7 +8,7 @@ Astro component for static rendering of commands. This allows you build componen
 
 ```astro
 ---
-import Command from "../components/Command.astro";
+import { Command } from "astro-command";
 ---
 <Command caller={import.meta.url} command="Component.py" message="from python!" />
 ```

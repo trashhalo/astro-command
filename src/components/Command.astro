@@ -18,9 +18,8 @@ if(args) {
     commandWithArgs += ' ' + args.join(' ');
 }
 
-console.log(cwd, commandWithArgs);
 const html = await new Promise((resolve, reject) => {
-    const sub = exec(commandWithArgs, { cwd }, (err, stdout, stderr) => {
+    const sub = exec(commandWithArgs, { cwd, maxBuffer: 128*1024*1024 }, (err, stdout, stderr) => {
         if(err) {
             return reject({err, stderr});
         }
